@@ -43,7 +43,7 @@ const int demo_protocols[] = { 66, 67, PROTOCOL_VERSION, NEW_PROTOCOL_VERSION, 0
 #define DEF_COMHUNKMEGS		56
 #else
 #define MIN_COMHUNKMEGS		128
-#define DEF_COMHUNKMEGS		512
+#define DEF_COMHUNKMEGS		256
 #endif
 
 #ifdef USE_MULTI_SEGMENT
@@ -3665,7 +3665,7 @@ void Com_Init( char *commandLine ) {
 	com_maxfpsUnfocused = Cvar_Get( "com_maxfpsUnfocused", "60", CVAR_ARCHIVE_ND );
 	Cvar_CheckRange( com_maxfps, "0", "1000", CV_INTEGER );
 	Cvar_CheckRange( com_maxfpsUnfocused, "0", "1000", CV_INTEGER );
-	com_yieldCPU = Cvar_Get( "com_yieldCPU", "1", CVAR_ARCHIVE_ND );
+	com_yieldCPU = Cvar_Get( "com_yieldCPU", "0", CVAR_ARCHIVE_ND );
 	Cvar_CheckRange( com_yieldCPU, "0", "16", CV_INTEGER );
 #endif
 

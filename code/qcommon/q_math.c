@@ -87,7 +87,7 @@ const vec4_t g_color_table[ 64 ] = {
 	{ 1.00000f, 0.00000f, 0.50000f, 1.00000f },	// w
 	{ 1.00000f, 0.00000f, 0.26795f, 1.00000f },	// x
 	{ 1.0, 1.0, 1.0, 1.0 }, // y, white, duped so all colors can be expressed with this palette
-	{ 0.5, 0.5, 0.5, 1.0 }, // z, grey
+	{ 0.60000f, 0.60000f, 1.00000f, 1.00000f }, // z, grey
 };
 
 
