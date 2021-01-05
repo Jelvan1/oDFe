@@ -423,7 +423,7 @@ static LRESULT WINAPI BufferWndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 		}
 		return 0;
 	
-	case WM_CONTEXTMENU:
+//	case WM_CONTEXTMENU: // for copy selected lines in viewlog
 		return 0;
 	}
 
