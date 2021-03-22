@@ -505,15 +505,11 @@ void WIN_Minimize( void ) {
 
 #ifdef FAST_MODE_SWITCH
 	// move game window to background
-	if ( glw_state.cdsFullscreen ) {
-		if ( gw_active )
-			SetForegroundWindow( GetDesktopWindow() );
-		// and wait some time before minimizing
-		if ( !uTimerM )
-			uTimerM = SetTimer( g_wv.hWnd, TIMER_M, 50, NULL );
-	} else {
-		ShowWindow( g_wv.hWnd, SW_MINIMIZE );
-	}
+	if ( gw_active )
+		SetForegroundWindow( GetDesktopWindow() );
+	// and wait some time before minimizing
+	if ( !uTimerM )
+		uTimerM = SetTimer( g_wv.hWnd, TIMER_M, 50, NULL );
 #else
 	ShowWindow( g_wv.hWnd, SW_MINIMIZE );
 #endif
