@@ -2515,16 +2515,6 @@ void FS_WriteCacheHeader( FILE *f )
 	fwrite( cache_header, sizeof( cache_header ), 1, f );
 }
 
-static const byte cache_header[ 4 ] = {
-	0, //version
-#ifdef Q3_LITTLE_ENDIAN
-	0x0,
-#else
-	0x1,
-#endif
-	PATH_SEP,
-	( ( sizeof( fileOffset_t ) - 1 ) << 4 ) | ( sizeof( fileTime_t ) - 1 )
-};
 
 static qboolean FS_ValidateCacheHeader( FILE *f )
 {
