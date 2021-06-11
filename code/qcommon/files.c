@@ -4846,7 +4846,7 @@ static void FS_CheckIdPaks( void )
 				{
 					Com_Printf("\n\n"
 						"**************************************************\n"
-						"ERROR: pak0.pk3 is present but its checksum (%u)\n"
+						"WARNING: pak0.pk3 is present but its checksum (%u)\n"
 						"is not correct. Please re-copy pak0.pk3 from your\n"
 						"legitimate Q3 CDROM.\n"
 						"**************************************************\n\n\n",
@@ -4856,7 +4856,7 @@ static void FS_CheckIdPaks( void )
 				{
 					Com_Printf("\n\n"
 						"**************************************************\n"
-						"ERROR: pak%d.pk3 is present but its checksum (%u)\n"
+						"WARNING: pak%d.pk3 is present but its checksum (%u)\n"
 						"is not correct. Please re-install Quake 3 Arena \n"
 						"Point Release v1.32 pk3 files\n"
 						"**************************************************\n\n\n",
