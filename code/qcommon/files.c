@@ -4061,21 +4061,21 @@ static void FS_Which_f( void ) {
 }
 
 
-static void FS_AddMapDir( const char *path, const char *dir ) {
+static void FS_AddMapDirectory( const char *path, const char *dir ) {
 	const searchpath_t *sp;
 	int				len;
 	searchpath_t	*search;
 	const char		*gamedir;
-	pack_t			*pak;
-	char			curpath[MAX_OSPATH*2 + 1];
-	char			*pakfile;
-	int				numfiles;
-	char			**pakfiles;
-	int				pakfilesi;
-	int				numdirs;
-	char			**pakdirs;
-	int				pakdirsi;
-	int				pakwhich;
+	// pack_t			*pak;
+	// char			curpath[MAX_OSPATH*2 + 1];
+	// char			*pakfile;
+	// int				numfiles;
+	// char			**pakfiles;
+	// int				pakfilesi;
+	// int				numdirs;
+	// char			**pakdirs;
+	// int				pakdirsi;
+	// int				pakwhich;
 	int				path_len;
 	int				dir_len;
 
