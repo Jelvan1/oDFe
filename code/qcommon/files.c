@@ -4684,7 +4684,7 @@ static void FS_Startup( void ) {
 
 #ifdef USE_PK3_CACHE
 #ifdef USE_PK3_CACHE_FILE
-	FS_LoadCache();
+	// FS_LoadCache();
 #endif
 #endif
 
