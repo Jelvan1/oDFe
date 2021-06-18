@@ -4684,53 +4684,63 @@ static void FS_Startup( void ) {
 
 #ifdef USE_PK3_CACHE
 #ifdef USE_PK3_CACHE_FILE
-	// FS_LoadCache();
+	FS_LoadCache();
 #endif
 #endif
 
 	// add search path elements in reverse priority order
 	if ( fs_steampath->string[0] ) {
+		Com_Printf( "----- 1 -----\n" );
 		FS_AddGameDirectory( fs_steampath->string, fs_basegame->string );
 	}
 
 	if ( fs_basepath->string[0] ) {
+		Com_Printf( "----- 2 -----\n" );
 		FS_AddGameDirectory( fs_basepath->string, fs_basegame->string );
 	}
 
 	// fs_homepath is somewhat particular to *nix systems, only add if relevant
 	// NOTE: same filtering below for mods and basegame
 	if ( fs_homepath->string[0] && Q_stricmp( fs_homepath->string, fs_basepath->string ) ) {
+		Com_Printf( "----- 3 -----\n" );
 		FS_AddGameDirectory( fs_homepath->string, fs_basegame->string );
 	}
 
 	// check for additional game folder for mods
 	if ( fs_gamedirvar->string[0] && Q_stricmp( fs_gamedirvar->string, fs_basegame->string ) ) {
 		if ( fs_steampath->string[0] ) {
+			Com_Printf( "----- 4 -----\n" );
 			FS_AddGameDirectory( fs_steampath->string, fs_gamedirvar->string );
 		}
 		if ( fs_basepath->string[0] ) {
+			Com_Printf( "----- 5 -----\n" );
 			FS_AddGameDirectory( fs_basepath->string, fs_gamedirvar->string );
 		}
 
 		// Cyberstorm
 		if (fs_include->string[0]) {
+			Com_Printf( "----- 6 -----\n" );
 			FS_AddGameDirectory(fs_basepath->string, fs_include->string);
 		}
 		// !Cyberstorm
 		
 		if ( fs_homepath->string[0] && Q_stricmp( fs_homepath->string, fs_basepath->string ) ) {
+			Com_Printf( "----- 7 -----\n" );
 			FS_AddGameDirectory( fs_homepath->string, fs_gamedirvar->string );
 		}
 	}
 
 	// reorder search paths to minimize further changes
+	Com_Printf( "----- 8 -----\n" );
 	FS_ReorderSearchPaths();
 
 	// https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=506
 	// reorder the pure pk3 files according to server order
+	Com_Printf( "----- 9 -----\n" );
 	FS_ReorderPurePaks();
 
 	// get the pure checksums of the pk3 files loaded by the server
+	Com_Printf( "----- 10 -----\n" );
 	FS_LoadedPakPureChecksums();
 
 	end = Sys_Milliseconds();
