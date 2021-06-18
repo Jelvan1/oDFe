@@ -4066,16 +4066,6 @@ static void FS_AddMapDirectory( const char *path, const char *dir ) {
 	int				len;
 	searchpath_t	*search;
 	const char		*gamedir;
-	// pack_t			*pak;
-	// char			curpath[MAX_OSPATH*2 + 1];
-	// char			*pakfile;
-	// int				numfiles;
-	// char			**pakfiles;
-	// int				pakfilesi;
-	// int				numdirs;
-	// char			**pakdirs;
-	// int				pakdirsi;
-	// int				pakwhich;
 	int				path_len;
 	int				dir_len;
 
@@ -4109,120 +4099,6 @@ static void FS_AddMapDirectory( const char *path, const char *dir ) {
 	search->next = fs_searchpaths;
 	fs_searchpaths = search;
 	fs_dirCount++;
-
-	// // find all pak files in this directory
-	// Q_strncpyz( curpath, FS_BuildOSPath( path, dir, NULL ), sizeof( curpath ) );
-
-	// // Get .pk3 files
-	// pakfiles = Sys_ListFiles(curpath, ".pk3", NULL, &numfiles, qfalse);
-
-	// if ( numfiles >= 2 )
-	// 	FS_SortFileList( pakfiles, numfiles - 1 );
-
-	// pakfilesi = 0;
-	// pakdirsi = 0;
-
-	// if ( fs_numServerPaks ) {
-	// 	numdirs = 0;
-	// 	pakdirs = NULL;
-	// } else {
-	// 	// Get top level directories (we'll filter them later since the Sys_ListFiles filtering is terrible)
-	// 	pakdirs = Sys_ListFiles( curpath, "/", NULL, &numdirs, qfalse );
-	// 	if ( numdirs >= 2 ) {
-	// 		FS_SortFileList( pakdirs, numdirs - 1 );
-	// 	}
-	// }
-
-	// while (( pakfilesi < numfiles) || (pakdirsi < numdirs) ) 
-	// {
-	// 	// Check if a pakfile or pakdir comes next
-	// 	if (pakfilesi >= numfiles) {
-	// 		// We've used all the pakfiles, it must be a pakdir.
-	// 		pakwhich = 0;
-	// 	}
-	// 	else if (pakdirsi >= numdirs) {
-	// 		// We've used all the pakdirs, it must be a pakfile.
-	// 		pakwhich = 1;
-	// 	}
-	// 	else {
-	// 		// Could be either, compare to see which name comes first
-	// 		pakwhich = (FS_PathCmp( pakfiles[pakfilesi], pakdirs[pakdirsi] ) < 0);
-	// 	}
-
-	// 	if ( pakwhich ) {
-
-	// 		len = strlen( pakfiles[pakfilesi] );
-	// 		if ( !FS_IsExt( pakfiles[pakfilesi], ".pk3", len ) ) {
-	// 			// not a pk3 file
-	// 			pakfilesi++;
-	// 			continue;
-	// 		}
-
-	// 		// The next .pk3 file is before the next .pk3dir
-	// 		pakfile = FS_BuildOSPath( path, dir, pakfiles[pakfilesi] );
-	// 		if ( (pak = FS_LoadZipFile( pakfile ) ) == NULL ) {
-	// 			// This isn't a .pk3! Next!
-	// 			pakfilesi++;
-	// 			continue;
-	// 		}
-
-	// 		// store the game name for downloading
-	// 		pak->pakGamename = gamedir;
-
-	// 		pak->index = fs_packCount;
-	// 		pak->referenced = 0;
-	// 		pak->exclude = qfalse;
-
-	// 		fs_packFiles += pak->numfiles;
-	// 		fs_packCount++;
-
-	// 		search = Z_TagMalloc( sizeof( *search ), TAG_SEARCH_PACK );
-	// 		Com_Memset( search, 0, sizeof( *search ) );
-	// 		search->pack = pak;
-
-	// 		search->next = fs_searchpaths;
-	// 		fs_searchpaths = search;
-
-	// 		pakfilesi++;
-	// 	} else {
-
-	// 		len = strlen(pakdirs[pakdirsi]);
-
-	// 		// The next .pk3dir is before the next .pk3 file
-	// 		// But wait, this could be any directory, we're filtering to only ending with ".pk3dir" here.
-	// 		if (!FS_IsExt(pakdirs[pakdirsi], ".pk3dir", len)) {
-	// 			// This isn't a .pk3dir! Next!
-	// 			pakdirsi++;
-	// 			continue;
-	// 		}
-
-	// 		// add the directory to the search path
-	// 		path_len = (int) strlen( curpath ) + 1; 
-	// 		path_len = PAD( path_len, sizeof( int ) );
-	// 		dir_len = PAD( len + 1, sizeof( int ) );
-	// 		len = sizeof( *search ) + sizeof( *search->dir ) + path_len + dir_len;
-
-	// 		search = Z_TagMalloc( len, TAG_SEARCH_DIR );
-	// 		Com_Memset( search, 0, len );
-	// 		search->dir = (directory_t*)(search + 1);
-	// 		search->dir->path = (char*)( search->dir + 1 );
-	// 		search->dir->gamedir = (char*)( search->dir->path + path_len );
-	// 		search->policy = DIR_ALLOW;
-
-	// 		strcpy( search->dir->path, curpath );				// c:\quake3\baseq3
-	// 		strcpy( search->dir->gamedir, pakdirs[ pakdirsi ] );// mypak.pk3dir
-
-	// 		search->next = fs_searchpaths;
-	// 		fs_searchpaths = search;
-	// 		fs_pk3dirCount++;
-
-	// 		pakdirsi++;
-	// 	}
-	// }
-
-	// done
-	// Sys_FreeFileList( pakdirs );
-	// Sys_FreeFileList( pakfiles );
 }
 
 //===========================================================================
