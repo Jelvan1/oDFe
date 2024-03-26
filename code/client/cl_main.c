@@ -858,6 +858,7 @@ static void CL_PlayDemo_f( void ) {
 
 	// open the demo file
 	arg = Cmd_Argv( 1 );
+	Com_Printf( va(S_COLOR_RED "\n$$$$$ %s \"%s\"\n\n", Cmd_Argv(0), arg));
 
 	// check for an extension .DEMOEXT_?? (?? is protocol)
 	ext_test = strrchr(arg, '.');
